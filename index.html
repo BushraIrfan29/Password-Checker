@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Password Checker</h2>
+    <input type="password" id="password" placeholder="Enter your password">
+    <button onclick="checkPassword()">Check Password</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    function checkPassword() {
+        const password = document.getElementById('password').value;
+        const result = document.getElementById('result');
+        
+        if (password.length < 6) {
+            result.textContent = 'Password too short! Must be at least 6 characters.';
+            result.style.color = 'red';
+        } else if (password.length <= 10) {
+            result.textContent = 'Password strength: Weak';
+            result.style.color = 'orange';
+        } else if (password.length <= 15) {
+            result.textContent = 'Password strength: Moderate';
+            result.style.color = 'blue';
+        } else {
+            result.textContent = 'Password strength: Strong';
+            result.style.color = 'green';
+        }
+    }
+</script>
+
+</body>
+</html>
